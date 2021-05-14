@@ -1,0 +1,188 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  border: 0;
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#show-player-turn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#show-player-turn div {
+  width: 10rem;
+  text-align: center;
+}
+
+#ui {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#ui #message {
+  min-height: 6.25rem;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: green;
+}
+
+#ui #restart-button button {
+  font-size: xx-large;
+  border: 1px solid black;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+#ui #restart-button button:hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.cells {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(100px, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+
+.cells :first-child,
+.cells :nth-child(2),
+.cells :nth-child(3) {
+  border-top: 0;
+}
+
+.cells :last-child,
+.cells :nth-child(7),
+.cells :nth-child(8) {
+  border-bottom: 0;
+}
+
+.cells :nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.cells :nth-child(3n + 3) {
+  border-right: 0;
+}
+
+.cell {
+  min-height: 6.25rem;
+  border: 2px solid black;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cell.cross,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+.cell.cross::before,
+.cell.cross::after,
+.cells.cross .cell:not(.cross):not(.circle):hover::after,
+.cells.cross .cell:not(.cross):not(.circle):hover::before {
+  content: "";
+  position: absolute;
+  height: calc(6.25rem * 0.9);
+  width: 15px;
+  background: black;
+}
+
+.cell.cross::before,
+.cells.cross .cell:not(.cross):not(.circle)::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.cell.cross::after,
+.cells.cross .cell:not(.cross):not(.circle)::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.cells.cross .cell:not(.cross):not(.circle):hover::after,
+.cells.cross .cell:not(.cross):not(.circle):hover::before {
+  background: grey;
+}
+
+.cell.circle::after,
+.cell.circle::before,
+.cells.circle .cell:not(.cross):not(.circle):hover::after,
+.cells.circle .cell:not(.cross):not(.circle):hover::before {
+  content: "";
+  position: absolute;
+  height: calc(6.25rem * 0.9);
+  width: calc(6.25rem * 0.9);
+  border-radius: 100vh;
+}
+
+.cell.circle::before {
+  background: black;
+}
+
+.cell.circle::after,
+.cells.circle .cell:not(.cross):not(.circle):hover::after {
+  height: calc(6.25rem * 0.7);
+  width: calc(6.25rem * 0.7);
+  background: white;
+}
+
+.cells.circle .cell:not(.cross):not(.circle):hover::before {
+  background: grey;
+}
+/*# sourceMappingURL=style.css.map */
