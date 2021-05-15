@@ -24,7 +24,7 @@
           align-items: center;
 }
 
-#show-player-turn {
+.show-player-turn {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,11 +34,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-#show-player-turn div {
+.show-player-turn div {
   width: 10rem;
   text-align: center;
+  background: grey;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 100vh;
+  font-weight: bold;
+}
+
+.show-player-turn .turn-focus {
+  background: #30fd30;
+  color: black;
 }
 
 #ui {
@@ -59,7 +72,6 @@
 
 #ui #message {
   min-height: 6.25rem;
-  font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,6 +82,7 @@
       -ms-flex-align: center;
           align-items: center;
   color: green;
+  text-align: center;
 }
 
 #ui #restart-button button {

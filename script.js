@@ -1,8 +1,8 @@
 const getCell = document.querySelectorAll("[data-cell]");
 const showMessage = document.querySelector("[data-endgame-message]");
+const showPlayerTurn = document.querySelectorAll("[data-indicator");
 const restartButton = document.getElementById("rebutton");
 const getCells = document.getElementById("cells");
-
 
 const WIN_CONDITIONS = [
     [0, 1, 2],
@@ -16,7 +16,11 @@ const WIN_CONDITIONS = [
 ];
 let playerOneTurn = true;
 
-const swapTurn = () => (playerOneTurn = !playerOneTurn);
+const swapTurn = () => {
+    showPlayerTurn[playerOneTurn ? 1 : 0].classList.add("turn-focus");
+    showPlayerTurn[playerOneTurn ? 0 : 1].classList.remove("turn-focus");
+    return (playerOneTurn = !playerOneTurn);
+};
 
 const drawSymbol = (cell, symbol) => {
     cell.classList.add(symbol);
@@ -49,6 +53,8 @@ const endGame = (message = "") => {
         eachElement.removeEventListener("click", handleClick, { once: true });
     });
     getCells.classList.remove("cross") || getCells.classList.remove("circle");
+    showPlayerTurn[0].classList.remove("turn-focus");
+    showPlayerTurn[1].classList.remove("turn-focus");
 };
 
 const handleClick = (e) => {
@@ -68,17 +74,21 @@ const handleClick = (e) => {
 function startGame() {
     endGame();
 
+    playerOneTurn = true;
+
     getCells.classList.add("cross");
 
-
+    showPlayerTurn[0].classList.add("turn-focus");
 
     getCell.forEach((eachElement) => {
-        eachElement.classList.remove("cross") || 
-        eachElement.classList.remove("circle") 
-        return eachElement.addEventListener("click", handleClick, { once: true });
+        eachElement.classList.remove("cross") ||
+            eachElement.classList.remove("circle");
+        return eachElement.addEventListener("click", handleClick, {
+            once: true,
+        });
     });
 }
 
 startGame();
 
-restartButton.addEventListener('click', startGame);
+restartButton.addEventListener("click", startGame);

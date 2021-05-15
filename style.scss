@@ -18,21 +18,31 @@ $cell-size: 6.25rem;
     // margin: 8rem 0;
 }
 
-#show-player-turn {
+.show-player-turn {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 
     div {
         width: 10rem;
         text-align: center;
+        background: grey;
+        color: rgb(255, 255, 255);
+        padding: 0.25rem 0.5rem;
+        border: 1px solid black;
+        border-radius: 100vh;
+        font-weight: bold;
     }
 }
 
+.show-player-turn .turn-focus {
+    background: rgb(48, 253, 48);
+    color: black;
+}
 
 #ui {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,11 +50,12 @@ $cell-size: 6.25rem;
 
     #message {
         min-height: 6.25rem;
-        font-size: 2rem;
+        // font-size: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         color: green;
+        text-align: center;
     }
 
     #restart-button {
